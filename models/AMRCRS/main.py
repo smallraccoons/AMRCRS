@@ -8,15 +8,15 @@ from utils import get_data_package, converter, tensor2str, get_alphabet
 import zhconv
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument('--exp_name', type=str, default='TransOCR', help='')
+parser.add_argument('--exp_name', type=str, default='AMRCRS', help='')
 parser.add_argument('--dataset_name', type=str, default='document', help='')
-parser.add_argument('--batch_size', type=int, default=32, help='')
+parser.add_argument('--batch_size', type=int, default=64, help='')
 parser.add_argument('--lr', type=float, default=1.0, help='')
 parser.add_argument('--epoch', type=int, default=1000, help='')
 parser.add_argument('--radical', action='store_true', default=True)
 parser.add_argument('--sijiaohaoma', action='store_true', default=True)
 parser.add_argument('--test', action='store_true', default=True)
-# parser.add_argument('--resume', type=str, default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/TransOCR_02_90/best_model.pth', help='')
+# parser.add_argument('--resume', type=str, default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/TransOCR_02_90/best_model.pth', help='')
 parser.add_argument('--resume', type=str, default='', help='')
 parser.add_argument('--train_dataset', type=str,
                     default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/data/dataset/benchmark_dataset/document/document_train',
@@ -29,19 +29,19 @@ parser.add_argument('--imageW', type=int, default=256, help='')
 parser.add_argument('--coeff', type=float, default=1.0, help='')
 parser.add_argument('--coeff2', type=float, default=1.0, help='')
 parser.add_argument('--alpha_path', type=str,
-                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/data/benchmark.txt',
+                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/data/benchmark.txt',
                     help='')
 parser.add_argument('--alpha_path_radical', type=str,
-                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/data/radicals.txt',
+                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/data/radicals.txt',
                     help='')
 parser.add_argument('--alpha_path_sijiaobianma', type=str,
-                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/data2/encoder2.txt',
+                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/data2/encoder2.txt',
                     help='')
 parser.add_argument('--decompose_path', type=str,
-                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/data/decompose.txt',
+                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/data/decompose.txt',
                     help='')
 parser.add_argument('--sijiaobianma_path', type=str,
-                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/data2/sijiaobianma_2w2.txt',
+                    default='/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/data2/sijiaobianma_2w2.txt',
                     help='')
 args = parser.parse_args()
 
@@ -111,14 +111,14 @@ def test(epoch):
     global test_time
     test_time += 1
     torch.save(model.state_dict(),
-               '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/model.pth'.format(
+               '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/model.pth'.format(
                    args.dataset_name, args.exp_name))
     if epoch == -1:
-        model.load_state_dict(torch.load('/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/best_model.pth'.format(
+        model.load_state_dict(torch.load('/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/best_model.pth'.format(
                 args.dataset_name, args.exp_name))) # 加载已保存的模型参数
 
     result_file = open(
-        '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/result_file_test_{}.txt'.format(
+        '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/result_file_test_{}.txt'.format(
             args.dataset_name, args.exp_name, test_time), 'w+', encoding='utf-8')
 
     print("Start Eval!")
@@ -196,11 +196,11 @@ def test(epoch):
     if correct / total > best_acc:
         best_acc = correct / total
         torch.save(model.state_dict(),
-                   '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/best_model.pth'.format(
+                   '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/best_model.pth'.format(
                        args.dataset_name, args.exp_name))
 
     f = open(
-        '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/record.txt'.format(
+        '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/record.txt'.format(
             args.dataset_name, args.exp_name), 'a+', encoding='utf-8')
     f.write("Epoch : {} | ACC : {}\n".format(epoch, correct / total))
     f.close()
@@ -210,9 +210,9 @@ if __name__ == '__main__':
     print('-------------')
 
     if not os.path.isdir(
-            '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}'.format(
+            '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}'.format(
                 args.dataset_name, args.exp_name)):
-        os.mkdir('/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}'.format(
+        os.mkdir('/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}'.format(
             args.dataset_name, args.exp_name))
     if args.test:
         test(-1)
@@ -231,7 +231,7 @@ if __name__ == '__main__':
 
     for epoch in range(start_epoch + 1, args.epoch):
         torch.save(model.state_dict(),
-                   '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/TransOCR/history/{}/{}/model.pth'.format(
+                   '/home/lab421/chencheng/benchmarking-chinese-text-recognition/models/AMRCRS/history/{}/{}/model.pth'.format(
                        args.dataset_name, args.exp_name))
         dataloader = iter(train_loader)
         train_loader_len = len(train_loader)
