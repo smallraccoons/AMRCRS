@@ -1,0 +1,10 @@
+Epoch : 0 | ACC : 0.80308
+Epoch : 1 | ACC : 0.9043
+Epoch : 2 | ACC : 0.89174
+Epoch : 3 | ACC : 0.89092
+Epoch : 4 | ACC : 0.84316
+Epoch : 5 | ACC : 0.78922
+Epoch : 6 | ACC : 0.90406
+Epoch : 7 | ACC : 0.84422
+Epoch : 8 | ACC : 0.89488
+Epoch : 9 | ACC : 0.90422
