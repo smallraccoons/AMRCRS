@@ -8,10 +8,6 @@ This repository contains datasets and baselines for A Multidimensional Represent
 ## Highlights
 :star2: All datasets are transformed to lmdb format for convenient usage.
 
-## Updates
-
-Nov 17, 2023: We upload the lmdb datasets publicly to Google Drive and BaiduCloud.
-
 ## Download
 * The *lmdb* scene, web and document datasets are available in [BaiduCloud](https://pan.baidu.com/s/1OlAAvSOUl8mA2WBzRC8RCg) (psw:v2rm) and [GoogleDrive](https://drive.google.com/drive/folders/1J-3klWJasVJTL32FOKaFXZykKwN6Wni5?usp=sharing).
 
