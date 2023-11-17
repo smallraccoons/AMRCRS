@@ -15,13 +15,13 @@ This repository contains datasets and baselines for A Multidimensional Represent
 
 * The lmdb dataset of hard cases can be downloaded from [BaiduCloud](https://pan.baidu.com/s/1HjY_LuQPpBiol6Sc7noUDQ) (psw:n6nu).
 
-* For the handwriting setting, please first download it at [SCUT-HCCDoc](https://github.com/HCIILAB/SCUT-HCCDoc_Dataset_Release) and divide it into training, validation, and testing sets following [link](https://github.com/FudanVI/benchmarking-chinese-text-recognition/tree/main/data).
+* For the handwriting setting, please first download it at [SCUT-HCCDoc](https://github.com/HCIILAB/SCUT-HCCDoc_Dataset_Release) and divide it into training, validation, and testing sets following [link](https://github.com/smallraccoons/AMRCRS/tree/main/data).
 
 * We also collected HWDB2.0-2.2 and ICDAR2013 handwriting datasets from [CASIA](http://www.nlpr.ia.ac.cn/databases/handwriting/Download.html) and ICDAR2013 competition for futher research. Datasets are available at [BaiduCloud](https://pan.baidu.com/s/1q_x3L1lZBRykoY-AwhtoXw) (psw:lfaq) and [GoogleDrive](https://drive.google.com/drive/folders/1_xLYnEtoVo-RvPL9m79f0HgERwtR1Wc-?usp=sharing).
 
 ## Datasets
 ![Alt text](./images/dataset.png)
-The image demonstrates the four datasets used in our article including *Scene*, *Web*, *Document*, and *Handwriting* datasets, each of which is introduced next.
+The image demonstrates the four datasets used in our experiment including *Scene*, *Web*, *Document*, and *Handwriting* datasets, each of which is introduced next.
 
 ### Scene Dataset
 We use the publicly available scene datasets including **RCTW**, **ReCTS**, **LSVT**, **ArT**, **CTW** resulting in 636,455 samples, which are randomly shuffled and then divided at a ratio of 8:1:1 to construct the training, validation, and testing datasets. Details of each scene datasets are introduced as follows:
@@ -171,6 +171,14 @@ Here are the results of the baselines on four datasets. ACC / NED follow the per
         <td align="center"><a href="./predictions/TransOCR/TransOCR_document.txt">97.86 / 0.996</a></td>
         <td align="center"><a href="./predictions/TransOCR/TransOCR_handwriting.txt">51.67 / 0.835</a></td>
     </tr>
+    <tr>
+        <td align="center">AMRCRS</td>
+        <td align="center">Now</td>
+        <td align="center"><a >72.64 / 0.857</a></td>
+        <td align="center"><a >64.91 / 0.817</a></td>
+        <td align="center"><a >98.17 / 0.997</a></td>
+        <td align="center"><a >57.81 / 0.876</a></td>
+    </tr>
 </table>
 
 ## References
@@ -215,4 +223,3 @@ The team includes Cheng Chen, MingJiang, MIN Zhang.
 
 Copyright © 2023. All Rights Reserved.
 
-![Alt text](./images/logo.png)
