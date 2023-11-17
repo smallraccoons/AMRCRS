@@ -1,24 +1,16 @@
 
 # A Multidimensional Representation-based Chinese Character Recognition scheme（AMRCRS）
-![](https://img.shields.io/badge/Team-FudanVI-red) ![](https://img.shields.io/badge/Maintained-Yes-green) ![](https://img.shields.io/badge/License-MIT-blue)
+![](https://img.shields.io/badge/Team-HDU-red) ![](https://img.shields.io/badge/Maintained-Yes-green) ![](https://img.shields.io/badge/License-MIT-blue)
 
 
-This repository contains datasets and baselines for benchmarking Chinese text recognition. Please see the corresponding [paper](https://arxiv.org/abs/2112.15093) for more details regarding the datasets, baselines, the empirical study, etc.
+This repository contains datasets and baselines for A Multidimensional Representation-based Chinese Character Recognition scheme. 
 
 ## Highlights
 :star2: All datasets are transformed to lmdb format for convenient usage.
 
-:star2: The experimental results of all baselines are available at [link](https://github.com/FudanVI/benchmarking-chinese-text-recognition/tree/main/predictions) with format (*index* *[pred]* *[gt]*).
-
-:star2: The code and trained weights of all baselines are available at [link](https://github.com/FudanVI/benchmarking-chinese-text-recognition/tree/main/model) for direct use.
-
 ## Updates
 
-Jun 15, 2022: The experimental settings are modified. We upload the code and trained weights of all baselines.
-
-Jan 3, 2023: This repo is made publicly available. The corresponding paper is available at arXiv.
-
-Nov 26, 2023: We upload the lmdb datasets publicly to Google Drive and BaiduCloud.
+Nov 17, 2023: We upload the lmdb datasets publicly to Google Drive and BaiduCloud.
 
 ## Download
 * The *lmdb* scene, web and document datasets are available in [BaiduCloud](https://pan.baidu.com/s/1OlAAvSOUl8mA2WBzRC8RCg) (psw:v2rm) and [GoogleDrive](https://drive.google.com/drive/folders/1J-3klWJasVJTL32FOKaFXZykKwN6Wni5?usp=sharing).
@@ -33,10 +25,10 @@ Nov 26, 2023: We upload the lmdb datasets publicly to Google Drive and BaiduClou
 
 ## Datasets
 ![Alt text](./images/dataset.png)
-The image demonstrates the four datasets used in our benchmark including *Scene*, *Web*, *Document*, and *Handwriting* datasets, each of which is introduced next.
+The image demonstrates the four datasets used in our article including *Scene*, *Web*, *Document*, and *Handwriting* datasets, each of which is introduced next.
 
 ### Scene Dataset
-We first collect the publicly available scene datasets including **RCTW**, **ReCTS**, **LSVT**, **ArT**, **CTW** resulting in 636,455 samples, which are randomly shuffled and then divided at a ratio of 8:1:1 to construct the training, validation, and testing datasets. Details of each scene datasets are introduced as follows:
+We use the publicly available scene datasets including **RCTW**, **ReCTS**, **LSVT**, **ArT**, **CTW** resulting in 636,455 samples, which are randomly shuffled and then divided at a ratio of 8:1:1 to construct the training, validation, and testing datasets. Details of each scene datasets are introduced as follows:
 - **RCTW** [1] provides 12,263 annotated Chinese text images from natural scenes. We derive 44,420 text lines from the training set and use them in our benchmark. The testing set of RCTW is not used as the text labels are not available. 
 - **ReCTS** [2] provides 25,000 annotated street-view Chinese text images, mainly derived from natural signboards. We only adopt the training set and crop 107,657 text samples in total for our benchmark. 
 - **LSVT** [3] is a large scale Chinese and English scene text dataset, providing 50,000 full-labeled (polygon boxes and text labels) and 400,000 partial-labeled (only one text instance each image) samples. We only utilize the full-labeled training set and crop 243,063 text line images for our benchmark.
